@@ -19,6 +19,8 @@ class translator:
                     self.dictionary[int(k)] = v
         except FileNotFoundError:
             print(f"new translator dictionary will be created as {self.file_path}")
+            self.dictionary = translator.sample_dict
+            self.update_database()
     
     def get_notes(self):
         """
@@ -59,9 +61,40 @@ class translator:
             notes = self.get_notes()
             phrase = self.convert_notes(notes)
             self.say(phrase)
+    
+    sample_dict = {
+        0: "Grace",
+        1: "and",
+        2: "Rocky",
+        3: "save",
+        4: "stars",
+        5: "amaze",
+        6: "bad",
+        7: "question",
+        8: "statement",
+        9: "you",
+        10: "sleep",
+        11: "I",
+        12: "watch",
+        13: "good",
+        14: "life",
+        15: "is",
+        16: "reason",
+        17: "understand",
+        18: "die",
+        19: "no",
+        20: "hello",
+        21: "Erid",
+        22: "Adrian",
+        23: "Taumeba",
+        24: "kill",
+        25: "Astrophage",
+        26: "hydrogen",
+        27: "Blip A",
+    }
 
 def main():
-    to_english = translator()
+    to_english = translator("testNew.csv")
     to_english.translate()
 
 if __name__ == "__main__":
