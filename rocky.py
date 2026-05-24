@@ -94,7 +94,7 @@ class translator:
     }
 
 def main():
-    to_english = translator("testNew.csv")
+    to_english = translator()
     to_english.translate()
 
 if __name__ == "__main__":
