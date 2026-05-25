@@ -1,7 +1,7 @@
 import pyttsx3
 import csv
 
-class translator:
+class Translator:
     def __init__(self, file_path = "translator.csv"):
         """
         by default, would use translator.csv, but can provide a new csv file
@@ -20,7 +20,7 @@ class translator:
         except FileNotFoundError:
             print(f"new translator dictionary will be created as {self.file_path}")
             if self.file_path == "translator.csv":
-                self.dictionary = translator.sample_dict
+                self.dictionary = Translator.sample_dict
                 self.update_database()
     
     def get_notes(self):
@@ -98,7 +98,7 @@ class translator:
     }
 
 def main():
-    to_english = translator()
+    to_english = Translator()
     to_english.translate()
 
 if __name__ == "__main__":
