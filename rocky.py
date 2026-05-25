@@ -1,5 +1,6 @@
 import pyttsx3
 import csv
+import sys
 
 class Translator:
     def __init__(self, file_path = "translator.csv"):
@@ -58,10 +59,30 @@ class Translator:
             writer.writerows(self.dictionary.items())
     
     def translate(self):
-        while True:
-            notes = self.get_notes()
-            phrase = self.convert_notes(notes)
-            self.say(phrase)
+        try:
+            while True:
+                notes = self.get_notes()
+                phrase = self.convert_notes(notes)
+                self.say(phrase)
+        except KeyboardInterrupt:
+            sys.exit("\n Goodbye!")
+
+
+    def demo():
+        print("Translate.translate() works like this (make sure sound is on):")
+        print("musical notes: 0 1 2 3 4")
+        pyttsx3.speak("Grace and Rocky save stars ")
+        print("Grace and Rocky save stars ")
+        print("musical notes: 5 5 5")
+        pyttsx3.speak("amaze amaze amaze ")
+        print("amaze amaze amaze ")
+        print("musical notes: 9 10 11 12")
+        pyttsx3.speak("you sleep I watch ")
+        print("you sleep I watch ")
+        print("usical notes: 28 29 30")
+        pyttsx3.speak("fist my bump")
+        print("fist my bump ")
+    
     
     sample_dict = {
         0: "Grace",
@@ -98,6 +119,10 @@ class Translator:
     }
 
 def main():
+    demo = input("do you want a demo? (Y/N) ")
+    if demo.lower() == "y" or demo.lower() == "yes" :
+        Translator.demo()
+    #add a CSV filepath in Translator init to start with an empty dictionary (e.g., "output.csv")
     to_english = Translator()
     to_english.translate()
 
