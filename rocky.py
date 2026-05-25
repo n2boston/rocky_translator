@@ -79,7 +79,7 @@ class Translator:
         print("musical notes: 9 10 11 12")
         pyttsx3.speak("you sleep I watch ")
         print("you sleep I watch ")
-        print("usical notes: 28 29 30")
+        print("musical notes: 28 29 30")
         pyttsx3.speak("fist my bump")
         print("fist my bump ")
     
